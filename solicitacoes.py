@@ -1,6 +1,6 @@
 solicitacoes = []
 
-def cadastrar():
+def cadastro():
     id = input("ID: ")
     tipo = input("Tipo: ")
     descricao = input("Descrição: ")
@@ -8,13 +8,13 @@ def cadastrar():
         "id": id,
         "tipo": tipo,
         "descricao": descricao,
-        "status": "Pendente"
+        "status": "OK"
     })
     print("Cadastrado!")
 
 def listar():
     if not solicitacoes:
-        print("Nada para listar")
+        print("Não existe cadastro")
         return
     for s in solicitacoes:
         print(f"ID: {s['id']}, Tipo: {s['tipo']}, Status: {s['status']}")
@@ -25,7 +25,7 @@ def atualizar():
         if s["id"] == id:
             novo_status = input("Novo status: ")
             s["status"] = novo_status
-            print("Atualizado!")
+            print("O item foi Atualizado")
             return
     print("ID não encontrado")
 
@@ -34,7 +34,7 @@ def excluir():
     for i, s in enumerate(solicitacoes):
         if s["id"] == id:
             solicitacoes.pop(i)
-            print("Excluído!")
+            print("O item foi Excluído")
             return
     print("ID não encontrado")
 
@@ -43,7 +43,7 @@ while True:
     op = input("Opção: ")
     
     if op == "1":
-        cadastrar()
+        cadastro()
     elif op == "2":
         listar()
     elif op == "3":
@@ -53,4 +53,4 @@ while True:
     elif op == "5":
         break
     else:
-        print("Opção inválida")
+        print("Essa opção não existe")
