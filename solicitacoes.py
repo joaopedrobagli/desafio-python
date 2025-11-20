@@ -1,55 +1,55 @@
 solicitacoes = []
 
 def cadastro():
-    id = input("ID: ")
-    tipo = input("Tipo: ")
-    descricao = input("Descrição: ")
+    id = input("Informe o ID: ")
+    tipo = input("Informe o Tipo: ")
+    descricao = input("Informe a Descrição: ")
     solicitacoes.append({
         "id": id,
         "tipo": tipo,
         "descricao": descricao,
         "status": "OK"
     })
-    print("Cadastrado!")
+    print("O item foi Cadastrado")
 
-def listar():
-    if not solicitacoes:
-        print("Não existe cadastro")
-        return
-    for s in solicitacoes:
-        print(f"ID: {s['id']}, Tipo: {s['tipo']}, Status: {s['status']}")
-
-def atualizar():
-    id = input("ID para atualizar: ")
+def atualizarItem():
+    id = input("Qual o ID para atualizar: ")
     for s in solicitacoes:
         if s["id"] == id:
             novo_status = input("Novo status: ")
             s["status"] = novo_status
             print("O item foi Atualizado")
             return
-    print("ID não encontrado")
+    print("O ID não encontrado")
 
-def excluir():
-    id = input("ID para excluir: ")
+def listarItem():
+    if not solicitacoes:
+        print("Não existe nenhum cadastro")
+        return
+    for s in solicitacoes:
+        print(f"ID: {s['id']}, Tipo: {s['tipo']}, Status: {s['status']}")
+
+def excluirItem():
+    id = input("Qual o ID para excluir: ")
     for i, s in enumerate(solicitacoes):
         if s["id"] == id:
             solicitacoes.pop(i)
             print("O item foi Excluído")
             return
-    print("ID não encontrado")
+    print("O ID não encontrado")
 
 while True:
-    print("\n1-Cadastrar 2-Listar 3-Atualizar 4-Excluir 5-Sair")
+    print("\n1-Cadastrar 2-Atualizar 3-Listar 4-Excluir 5-Sair")
     op = input("Opção: ")
     
     if op == "1":
         cadastro()
     elif op == "2":
-        listar()
+        atualizarItem()
     elif op == "3":
-        atualizar()
+        listarItem()
     elif op == "4":
-        excluir()
+        excluirItem()
     elif op == "5":
         break
     else:
