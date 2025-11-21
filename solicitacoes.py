@@ -4,6 +4,7 @@ def cadastro():
     id = input("Informe o ID: ")
     tipo = input("Informe o Tipo: ")
     descricao = input("Informe a Descrição: ")
+
     solicitacoes.append({
         "id": id,
         "tipo": tipo,
@@ -15,6 +16,7 @@ def cadastro():
 def atualizarItem():
     id = input("Qual o ID para atualizar: ")
     for s in solicitacoes:
+
         if s["id"] == id:
             novo_status = input("Novo status: ")
             s["status"] = novo_status
@@ -32,6 +34,7 @@ def listarItem():
 def excluirItem():
     id = input("Qual o ID para excluir: ")
     for i, s in enumerate(solicitacoes):
+        
         if s["id"] == id:
             solicitacoes.pop(i)
             print("O item foi Excluído")
@@ -40,17 +43,17 @@ def excluirItem():
 
 while True:
     print("\n1-Cadastrar 2-Atualizar 3-Listar 4-Excluir 5-Sair")
-    op = input("Opção: ")
+    opcao = input("Opção: ")
     
-    if op == "1":
+    if opcao == "1":
         cadastro()
-    elif op == "2":
+    elif opcao == "2":
         atualizarItem()
-    elif op == "3":
+    elif opcao == "3":
         listarItem()
-    elif op == "4":
+    elif opcao == "4":
         excluirItem()
-    elif op == "5":
+    elif opcao == "5":
         break
     else:
         print("Essa opção não existe")
