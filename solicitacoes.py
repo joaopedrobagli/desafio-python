@@ -1,5 +1,7 @@
 solicitacoes = []
 
+
+
 def cadastro():
     id = input("Informe o ID: ")
     tipo = input("Informe o Tipo: ")
@@ -13,6 +15,7 @@ def cadastro():
     })
     print("O item foi Cadastrado")
 
+
 def atualizarItem():
     id = input("Qual o ID para atualizar: ")
     for s in solicitacoes:
@@ -24,6 +27,7 @@ def atualizarItem():
             return
     print("O ID não encontrado")
 
+
 def listarItem():
     if not solicitacoes:
         print("Não existe nenhum cadastro")
@@ -31,15 +35,17 @@ def listarItem():
     for s in solicitacoes:
         print(f"ID: {s['id']}, Tipo: {s['tipo']}, Status: {s['status']}")
 
+
 def excluirItem():
     id = input("Qual o ID para excluir: ")
     for i, s in enumerate(solicitacoes):
-        
+
         if s["id"] == id:
             solicitacoes.pop(i)
             print("O item foi Excluído")
             return
     print("O ID não encontrado")
+
 
 while True:
     print("\n1-Cadastrar 2-Atualizar 3-Listar 4-Excluir 5-Sair")
